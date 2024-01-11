@@ -182,11 +182,14 @@ label {
 }
 
 .cocktails {
+  display: flex;
+  flex-wrap: wrap;
   align-items: center;
   margin: 3rem;
   list-style-type: none;
   padding: 2rem;
 }
+
 
 .ingredient-error {
   display: none;
