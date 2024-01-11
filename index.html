@@ -8,9 +8,12 @@
   <body>
     <section class="hero">
       <h1>Make me a cocktail!</h1>
-      <h2>Do you have alcohol leftovers in your cabinet? We can help you!</h2>
+      <h2>
+        Do you have alcohol leftovers in your cabinet? But not sure what to make
+        with it? We can help you!
+      </h2>
     </section>
-    <h3>Type your ingredient in our form!</h3>
+    <h3 class="cta">Type your ingredient in our form!</h3>
     <main class="cocktail">
       <style>
         .ingredient-error {
@@ -27,7 +30,29 @@
 
       <ul class="cocktails"></ul>
     </main>
-    <footer class="footer"></footer>
+    <footer class="footer">
+      <div class="footer__logo">
+        <img
+          src="/assests/imgs/logo.png"
+          width="31.25rem"
+          height="31.25rem"
+          alt="logo"
+        />
+        MAKE ME A COCKTAIL PLEASE!
+      </div>
+      <div class="footer__loc">
+        <h2>Connect with us</h2>
+        <p class="footer__loc--address">
+          123 Anywhere St. Any City ST 12345
+          <br />
+          Tel: +123-456-7890
+          <a href="hello@makemeacocktailplease.com">
+            hello@makemeacocktailplease.com
+          </a>
+        </p>
+      </div>
+      <div class="footer__soc"></div>
+    </footer>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="./scripts/cocktails-api.js"></script>
     <script src="./scripts/script.js"></script>
