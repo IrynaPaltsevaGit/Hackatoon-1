@@ -2,6 +2,7 @@ html {
   box-sizing: border-box;
   font-size: 100%;
   background-color: #cae6d5;
+  font-family: "Noto Serif", serif;
 }
 
 *,
@@ -26,4 +27,4 @@ div.logo__container {
 
 footer {
   display: flex;
-}/*# sourceMappingURL=styles.css.map */
+} /*# sourceMappingURL=styles.css.map */
