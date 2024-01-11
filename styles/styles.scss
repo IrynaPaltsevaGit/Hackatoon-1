@@ -4,7 +4,6 @@
 html {
   box-sizing: border-box;
   font-size: 100%;
-  background-color: #cae6d5;
   font-family: "Noto", serif;
 }
 
@@ -29,6 +28,10 @@ body {
   margin-left: 0;
 }
 
+header {
+  background-color: $fbackground;
+}
+
 div.logo__container {
   display: flex;
   font-family: "Noto";
@@ -38,11 +41,34 @@ div.logo__container {
   justify-content: flex-start;
   align-items: center;
   padding-top: 0.5rem;
+  &--top {
+    padding-top: 3rem;
+    padding-bottom: 5rem;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: left;
+    align-items: center;
+    font-size: 4rem;
+  }
 }
 
 .logo__img {
   padding: 1rem;
   padding-left: 2rem;
+}
+
+.hero {
+  background-image: url("/assests/imgs/hero.svg");
+  width: 100%;
+  height: auto;
+  &__pitch {
+    color: white;
+    font-size: 2.5rem;
+    margin: 3rem;
+    padding-bottom: 4rem;
+  }
 }
 
 h1 {
@@ -59,7 +85,96 @@ h2 {
   font-size: 2.5rem;
 }
 
+.about {
+  color: $logo;
+  margin: 1rem;
+  display: flex;
+  &__img {
+    opacity: 100%;
+  }
+  &__des {
+    margin: 1rem;
+    &--new {
+      padding-top: 3rem;
+      padding-left: 2rem;
+      text-align: left;
+      font-size: 3.5rem;
+      font-style: italic;
+      padding-right: 10rem;
+    }
+    &--stats {
+      padding-top: 4rem;
+      padding-left: 2rem;
+      padding-right: 2rem;
+      font-family: "noto", sans-serif;
+      font-style: italic;
+      font-size: 2rem;
+    }
+  }
+}
+
+.form__container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-wrap: nowrap;
+  justify-content: center;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  font-size: 2.5rem;
+}
+
+.cocktails-form {
+  font-family: "NotoXlit", serif;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+label {
+  font-family: "Noto", serif;
+  padding: 2rem;
+}
+
+#ingredient {
+  font-family: "NotoXlit", serif;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  width: 28rem;
+  padding: 1rem;
+  border: 8px solid $logo;
+  border-radius: 1rem;
+  font-size: 2rem;
+  color: #333;
+  background-color: white;
+}
+
+.ingredient-error {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  font-family: "NotoXlit", serif;
+}
+
+.add-ingredient {
+  font-family: "NotoXlit", serif;
+  font-size: 2rem;
+  padding: 1rem;
+  color: white;
+  background-color: $fbackground;
+  border-radius: 1rem;
+}
+
+.get-cocktails {
+  font-family: "NotoXlit", serif;
+  font-size: 2rem;
+  padding: 1rem;
+  color: white;
+  background-color: $fbackground;
+  border-radius: 1rem;
+}
+
 footer {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
   display: flex;
   background-color: $fbackground;
   color: $background;

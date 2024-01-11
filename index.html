@@ -7,48 +7,72 @@
     <title>🍹Cocktail Generator🍹</title>
   </head>
   <body>
-    <header class="header">
-      <div class="logo__container">
+    <section class="hero">
+      <div class="logo__container--top">
         <a href="./index.html">
           <img
             class="logo"
             src="/assests/imgs/logo.png"
-            width="50rem"
-            height="50rem"
+            width="200rem"
+            height="200rem"
             alt="logo"
           />
         </a>
         <h1>MAKE ME <br />A COCKTAIL <br />PLEASE!</h1>
       </div>
-    </header>
-    <section class="hero">
-      <img
-        class="hero__img"
-        src="/assests/imgs/hero.svg"
-        width="100%"
-        height="auto"
-        alt="hero"
-      />
-      <h2>
-        Do you have alcohol leftovers in your cabinet? But not sure what to make
-        with it? We can help you!
-      </h2>
+      <h3 class="hero__pitch">
+        <br />
+        Do you have leftover alcohol in your cabinet?
+        <br />But not sure what to make with it?
+        <br />
+        <br />
+        We can help you!
+        <br />
+      </h3>
     </section>
-    <h3 class="cta">Type your ingredient in our form below...</h3>
+    <section class="about">
+      <div class="about__container">
+        <img
+          class="about__img"
+          src="/assests/imgs/alcohol.png"
+          alt="random alcohol"
+          width="100%"
+          height="auto"
+        />
+      </div>
+      <div class="about__des">
+        <h4 class="about__des--new">Looking to try something new?</h4>
+        <br />
+        <p class="about__des--stats">
+          with our app generator we can suggest more than
+          <br />
+          <strong>600</strong> cocktails!
+        </p>
+      </div>
+    </section>
     <main class="cocktail">
       <style>
         .ingredient-error {
           display: none;
         }
       </style>
-      <form class="cocktails-form">
-        <label for="ingredient">Ingredient for a cocktail:</label>
-        <input type="text" id="ingredient" name="ingredient" />
-        <p class="ingredient-error">Maximum amount of ingredients is 5.</p>
-        <input type="button" class="add-ingredient" value="Add ingredient" />
-        <input type="submit" class="get-cocktails" value="Get Cocktails" />
-      </form>
-
+      <div class="form__container">
+        <form class="cocktails-form">
+          <label for="ingredient">Type in your ingredients below...</label>
+          <br />
+          <br />
+          <input type="text" id="ingredient" name="ingredient" />
+          <p class="ingredient-error">Maximum amount of ingredients is 5.</p>
+          <input type="button" class="add-ingredient" value="Add ingredient" />
+          <br />
+          <br />
+          <input
+            type="submit"
+            class="get-cocktails"
+            value="Get your personalized suggested Cocktails🍹"
+          />
+        </form>
+      </div>
       <ul class="cocktails"></ul>
     </main>
     <footer class="footer">
@@ -57,8 +81,8 @@
           <img
             class="logo"
             src="/assests/imgs/logo.png"
-            width="40rem"
-            height="40rem"
+            width="100rem"
+            height="100rem"
             alt="logo"
           />
         </a>

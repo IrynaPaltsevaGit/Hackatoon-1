@@ -31,7 +31,6 @@
 html {
   box-sizing: border-box;
   font-size: 100%;
-  background-color: #cae6d5;
   font-family: "Noto", serif;
 }
 
@@ -56,6 +55,10 @@ body {
   margin-left: 0;
 }
 
+header {
+  background-color: #06130f;
+}
+
 div.logo__container {
   display: flex;
   font-family: "Noto";
@@ -66,10 +69,33 @@ div.logo__container {
   align-items: center;
   padding-top: 0.5rem;
 }
+div.logo__container--top {
+  padding-top: 3rem;
+  padding-bottom: 5rem;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: left;
+  align-items: center;
+  font-size: 4rem;
+}
 
 .logo__img {
   padding: 1rem;
   padding-left: 2rem;
+}
+
+.hero {
+  background-image: url("/assests/imgs/hero.svg");
+  width: 100%;
+  height: auto;
+}
+.hero__pitch {
+  color: white;
+  font-size: 2.5rem;
+  margin: 3rem;
+  padding-bottom: 4rem;
 }
 
 h1 {
@@ -86,7 +112,96 @@ h2 {
   font-size: 2.5rem;
 }
 
+.about {
+  color: #013927;
+  margin: 1rem;
+  display: flex;
+}
+.about__img {
+  opacity: 100%;
+}
+.about__des {
+  margin: 1rem;
+}
+.about__des--new {
+  padding-top: 3rem;
+  padding-left: 2rem;
+  text-align: left;
+  font-size: 3.5rem;
+  font-style: italic;
+  padding-right: 10rem;
+}
+.about__des--stats {
+  padding-top: 4rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  font-family: "noto", sans-serif;
+  font-style: italic;
+  font-size: 2rem;
+}
+
+.form__container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-wrap: nowrap;
+  justify-content: center;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  font-size: 2.5rem;
+}
+
+.cocktails-form {
+  font-family: "NotoXlit", serif;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+label {
+  font-family: "Noto", serif;
+  padding: 2rem;
+}
+
+#ingredient {
+  font-family: "NotoXlit", serif;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  width: 28rem;
+  padding: 1rem;
+  border: 8px solid #013927;
+  border-radius: 1rem;
+  font-size: 2rem;
+  color: #333;
+  background-color: white;
+}
+
+.ingredient-error {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  font-family: "NotoXlit", serif;
+}
+
+.add-ingredient {
+  font-family: "NotoXlit", serif;
+  font-size: 2rem;
+  padding: 1rem;
+  color: white;
+  background-color: #06130f;
+  border-radius: 1rem;
+}
+
+.get-cocktails {
+  font-family: "NotoXlit", serif;
+  font-size: 2rem;
+  padding: 1rem;
+  color: white;
+  background-color: #06130f;
+  border-radius: 1rem;
+}
+
 footer {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
   display: flex;
   background-color: #06130f;
   color: #cae6d5;
