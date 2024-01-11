@@ -1,35 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Cocktails</title>
-</head>
-<body>
-    <h1>Make me a cocktail!</h1>
-    <h2>Do you have alcohol leftovers in your cabinet?
-        We can help you!
-    </h2>
+  </head>
+  <body>
+    <section class="hero">
+      <h1>Make me a cocktail!</h1>
+      <h2>Do you have alcohol leftovers in your cabinet? We can help you!</h2>
+    </section>
     <h3>Type your ingredient in our form!</h3>
-    <style>
+    <main class="cocktail">
+      <style>
         .ingredient-error {
-            display: none;
+          display: none;
         }
-    </style>
-    <form class="cocktails-form">
+      </style>
+      <form class="cocktails-form">
         <label for="ingredient">Ingredient for a cocktail:</label>
-        <input type="text" id="ingredient" name="ingredient">
+        <input type="text" id="ingredient" name="ingredient" />
         <p class="ingredient-error">Maximum amount of ingredients is 5.</p>
-        <input type="button" class="add-ingredient" value="Add ingredient">
-        <input type="submit" class="get-cocktails" value="Get Cocktails">
-    </form>
+        <input type="button" class="add-ingredient" value="Add ingredient" />
+        <input type="submit" class="get-cocktails" value="Get Cocktails" />
+      </form>
 
-    <ul class="cocktails">
-
-    </ul>
-
+      <ul class="cocktails"></ul>
+    </main>
+    <footer class="footer"></footer>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="./scripts/cocktails-api.js"></script>
     <script src="./scripts/script.js"></script>
-</body>
+  </body>
 </html>
