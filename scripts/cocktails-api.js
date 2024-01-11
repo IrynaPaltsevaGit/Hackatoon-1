@@ -1,9 +1,9 @@
 class CocktailsApi {
     constructor() {
-        
+        this.apiKey = 1;
     }
     async getIngredients() {
-        const url = "https://www.thecocktaildb.com/api/json/v1/1/list.php?i=list";
+        const url = "https://www.thecocktaildb.com/api/json/v1/"+this.apiKey+"/list.php?i=list";
         try{
             const result = await axios.get(url);
             if(result.data) {
@@ -22,7 +22,7 @@ class CocktailsApi {
     }
 
     async getCoctailsByIngredient(ingredientName) {
-        const url = "https://www.thecocktaildb.com/api/json/v1/1/filter.php?i="+ingredientName;
+        const url = "https://www.thecocktaildb.com/api/json/v1/"+this.apiKey+"/filter.php?i="+ingredientName;
         try {
             const result = await axios.get(url);
 
@@ -43,7 +43,7 @@ class CocktailsApi {
     }
 
     async getCocktailDetails(cocktailName) {
-        const url = "https://www.thecocktaildb.com/api/json/v1/1/search.php?s="+cocktailName;
+        const url = "https://www.thecocktaildb.com/api/json/v1/"+this.apiKey+"/search.php?s="+cocktailName;
         try {
             const result = await axios.get(url);
 
