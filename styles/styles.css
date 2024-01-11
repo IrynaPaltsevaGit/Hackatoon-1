@@ -116,25 +116,29 @@ h2 {
   color: #013927;
   margin: 1rem;
   display: flex;
+  flex-direction: row;
+  align-content: center;
+  align-items: center;
+}
+.about__container {
+  margin: 0;
+  width: 100%;
 }
 .about__img {
   opacity: 100%;
+  align-items: center;
 }
 .about__des {
   margin: 1rem;
 }
 .about__des--new {
-  padding-top: 3rem;
-  padding-left: 2rem;
+  padding: 1rem;
   text-align: left;
-  font-size: 3.5rem;
+  font-size: 2.5rem;
   font-style: italic;
-  padding-right: 10rem;
 }
 .about__des--stats {
-  padding-top: 4rem;
-  padding-left: 2rem;
-  padding-right: 2rem;
+  padding: 1rem;
   font-family: "noto", sans-serif;
   font-style: italic;
   font-size: 2rem;
@@ -160,6 +164,8 @@ h2 {
 label {
   font-family: "Noto", serif;
   padding: 2rem;
+  color: #013927;
+  font-style: italic;
 }
 
 #ingredient {
@@ -171,7 +177,8 @@ label {
   border: 8px solid #013927;
   border-radius: 1rem;
   font-size: 2rem;
-  color: #333;
+  color: #013927;
+  font-style: italic;
   background-color: white;
 }
 
@@ -186,6 +193,7 @@ label {
   font-size: 2rem;
   padding: 1rem;
   color: white;
+  font-style: italic;
   background-color: #06130f;
   border-radius: 1rem;
 }
@@ -197,6 +205,18 @@ label {
   color: white;
   background-color: #06130f;
   border-radius: 1rem;
+  font-style: italic;
+}
+
+.cocktails {
+  align-items: center;
+  margin: 3rem;
+  list-style-type: none;
+  padding: 2rem;
+}
+
+p {
+  font-family: "notobold", sans-serif;
 }
 
 footer {
