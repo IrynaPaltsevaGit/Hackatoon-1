@@ -1,8 +1,5 @@
 runCocktails();
  
-// {strIngredient1: 'Light rum'}
-// {strIngredient1: 'Applejack'}
-// {strIngredient1: 'Gin'}
 async function runCocktails() {
     const maxIngredientsAmount = 5;
     const cocktailsApi = new CocktailsApi();
@@ -20,6 +17,7 @@ async function runCocktails() {
 
 
     function addIngredient() {
+        console.log('foo')
         const input = document.querySelector('[name="ingredient"]');
         const ingredientName = input.value.trim();
 
