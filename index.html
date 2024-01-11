@@ -53,17 +53,20 @@
       </div>
     </section>
     <main class="cocktail">
-      <style>
-        .ingredient-error {
-          display: none;
-        }
-      </style>
+      <div class="selected-ingredients__wrap">
+          <h3 class="selected-ingredients__title">Selected ingredients</h3>
+          <div class="selected-ingredients">
+          </div>
+      </div>
       <div class="form__container">
         <form class="cocktails-form" autocomplete="off">
           <label for="ingredient">Type in your ingredients below...</label>
           <br />
           <br />
-          <input type="text" id="ingredient" name="ingredient" />
+          <div class="ingredient__wrap">
+            <input type="text" id="ingredient" name="ingredient">
+            <ul class="searched-ingredients"></ul>
+          </div>
           <p class="ingredient-error">Maximum amount of ingredients is 5.</p>
           <input type="button" class="add-ingredient" value="Add ingredient" />
           <br />
@@ -75,6 +78,7 @@
           />
         </form>
       </div>
+      <p class="cocktails-error">There is no cocktails with such ingredients</p>
       <ul class="cocktails"></ul>
     </main>
     <footer class="footer">
