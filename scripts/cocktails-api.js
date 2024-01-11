@@ -48,19 +48,23 @@ class CocktailsApi {
             const result = await axios.get(url);
 
             if(result.data) {
-                console.log(result.data)
-                let ingredients = result.data.drinks;
+                let cocktailData = result.data.drinks;
 
-                if(!ingredients) {
-                    return [];
+                if(!cocktailData) {
+                    return null;
                     
                 }
-                return ingredients;
+                if(Array.isArray(cocktailData) && cocktailData.length > 0) {
+                    return cocktailData[0];
+                }
+                else {
+                    return null;
+                }
             }
 
         }catch(error) {
             console.log(error);
         }
-        return [];
+        return null;
     }
 }

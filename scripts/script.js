@@ -17,7 +17,6 @@ async function runCocktails() {
 
 
     function addIngredient() {
-        console.log('foo')
         const input = document.querySelector('[name="ingredient"]');
         const ingredientName = input.value.trim();
 
@@ -108,15 +107,13 @@ async function runCocktails() {
         cocktailsList.innerHTML = "";
 
         if(cocktails.length > 0) {
-            cocktails.forEach(async cocktail => {
+            cocktails.forEach(cocktail => {
                 const itemImg = createElement('img', '');
                 itemImg.src = cocktail.strDrinkThumb;
                 itemImg.alt = cocktail.strDrink;
                 const itemName = createElement('p', '', cocktail.strDrink);
-                const cocktailItem = createElement('li', '', [itemImg, itemName]);
+                const cocktailItem = createElement('li', 'cocktails__item', [itemImg, itemName]);
                 cocktailsList.appendChild(cocktailItem);
-
-                //const cocktailDetails = getCocktailDetails(cocktail.strDrink);
             });
             hideCocktailError();
         }else {
@@ -157,10 +154,6 @@ async function runCocktails() {
             });
            
         } 
-    }
-
-    async function getCocktailDetails(cocktailName) {
-        const cocktail = await cocktailsApi.getCocktailDetails(cocktailName);
     }
 
     function createElement(tag, className, children) {
