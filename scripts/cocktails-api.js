@@ -42,7 +42,7 @@ class CocktailsApi {
         return [];
     }
 
-    async getCocktailIngredients(cocktailName) {
+    async getCocktailDetails(cocktailName) {
         const url = "https://www.thecocktaildb.com/api/json/v1/1/search.php?s="+cocktailName;
         try {
             const result = await axios.get(url);

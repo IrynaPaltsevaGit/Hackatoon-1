@@ -11,11 +11,7 @@ async function runCocktails() {
     let selectedIngredients = [];
 
     const searchIngredientInput = document.querySelector('[name="ingredient"]');
-
-    searchIngredientInput
-
-    
-
+    searchIngredientInput.addEventListener('input', getSearchedIngredients);
 
     const addIngredientButton = document.querySelector('.add-ingredient');
     const getCocktailsButton = document.querySelector('.get-cocktails');
@@ -28,8 +24,15 @@ async function runCocktails() {
         const ingredientName = input.value.trim();
 
         if(selectedIngredients.length < maxIngredientsAmount) {
-            selectedIngredients.push(ingredientName);
-            console.log(selectedIngredients);
+            if (ingredientName){
+                selectedIngredients.push(ingredientName);
+                const ul = document.querySelector('.searched-ingredients');
+                ul.innerHTML = '';
+                addSelectedIngredientLabel(ingredientName);
+            }
+            else{
+                displayCocktailError("Ingredient name empty");
+            }
         }
         else {
             const errorParagraph = document.querySelector('.ingredient-error');
@@ -42,6 +45,22 @@ async function runCocktails() {
         clearForm();
     }
 
+    function addSelectedIngredientLabel(ingredientName) {
+        const text = createElement('span', 'selected-ingredients__text', ingredientName);
+        const cross = createElement('span', 'selected-ingredients__remove', 'x');
+        const selectedIngredientLabel = createElement('span', 'selected-ingredients__item', [text, cross]);
+
+        cross.addEventListener('click', (event) => deleteIngredient(event, ingredientName));
+
+        document.querySelector('.selected-ingredients').appendChild(selectedIngredientLabel);
+    }
+
+    function deleteIngredient(event, ingredientName) {
+        const cross = event.target;
+        const item = cross.closest(".selected-ingredients__item");
+        item.remove();
+        selectedIngredients = selectedIngredients.filter(ingredient => ingredient !== ingredientName);
+    }
     function clearForm() {
         const input = document.querySelector('[name="ingredient"]');
         input.value = "";
@@ -60,7 +79,7 @@ async function runCocktails() {
                 allSelectedCocktails = [...allSelectedCocktails, ...cocktails];
                 isDataFetched[i] = true;
 
-                if(isDataFetched.indexOf(false) < 0) {
+                if(!isDataFetched.includes(false)) {
                     allSelectedCocktails.forEach(cocktail => {
                         const isCocktailExists = filteredCocktails.find(elem => elem.idDrink == cocktail.idDrink);
 
@@ -72,35 +91,78 @@ async function runCocktails() {
                             }
                         }
                     });
-                    console.log(filteredCocktails);
-                    displayCocktails(cocktails);
+                    displayCocktails(filteredCocktails);
                     selectedIngredients = [];
                 }
             });
 
         }else {
-            // TODO: show error to the user
+            selectedIngredients = [];
+            const cocktailsList = document.querySelector('.cocktails');
+            cocktailsList.innerHTML = "";
+            displayCocktailError("There is no ingredients selected.");
         }
+        document.querySelector('.selected-ingredients').innerHTML = "";
     }
 
     function displayCocktails(cocktails) {
         const cocktailsList = document.querySelector('.cocktails');
-        cocktails.forEach(cocktail => {
-            const itemImg = createElement('img', '');
-            itemImg.src = cocktail.strDrinkThumb;
-            itemImg.alt = cocktail.strDrink;
-            const itemName = createElement('p', '', cocktail.strDrink);
-            const cocktailItem = createElement('li', '', [itemImg, itemName]);
-            cocktailsList.appendChild(cocktailItem);
-        });
+        cocktailsList.innerHTML = "";
+
+        if(cocktails.length > 0) {
+            cocktails.forEach(async cocktail => {
+                const itemImg = createElement('img', '');
+                itemImg.src = cocktail.strDrinkThumb;
+                itemImg.alt = cocktail.strDrink;
+                const itemName = createElement('p', '', cocktail.strDrink);
+                const cocktailItem = createElement('li', '', [itemImg, itemName]);
+                cocktailsList.appendChild(cocktailItem);
+
+                //const cocktailDetails = getCocktailDetails(cocktail.strDrink);
+            });
+            hideCocktailError();
+        }else {
+            displayCocktailError("There is no cocktails with such ingredients.");
+        }        
+    }
+
+    function displayCocktailError(text) {
+        const error = document.querySelector('.cocktails-error');
+        error.innerHTML = text;
+        error.style.display = 'block';
+    }
+
+    function hideCocktailError() {
+        const error = document.querySelector('.cocktails-error');
+        error.innerHTML = "";
+        error.style.display = 'none';
     }
 
     function getSearchedIngredients() {
-        
+        let userTyped = searchIngredientInput.value.toLowerCase();
+
+        if (userTyped.length >= 2){
+            const result = allIngredients.filter(ingredient => {
+                return ingredient.strIngredient1.toLowerCase().includes(userTyped);                
+            });
+
+            const ul = document.querySelector('.searched-ingredients');
+            ul.innerHTML = '';
+
+            result.forEach(ingredient => {
+                const ingredientListItem = createElement('li', '', ingredient.strIngredient1);
+                ingredientListItem.addEventListener('click', () => {
+                    searchIngredientInput.value = ingredient.strIngredient1;
+                    ul.innerHTML = '';
+                });
+                ul.appendChild(ingredientListItem);
+            });
+           
+        } 
     }
 
-    async function getCocktailIngredients(cocktailName) {
-        
+    async function getCocktailDetails(cocktailName) {
+        const cocktail = await cocktailsApi.getCocktailDetails(cocktailName);
     }
 
     function createElement(tag, className, children) {
