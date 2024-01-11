@@ -11,13 +11,25 @@
         We can help you!
     </h2>
     <h3>Type your ingredient in our form!</h3>
-    <form>
+    <style>
+        .ingredient-error {
+            display: none;
+        }
+    </style>
+    <form class="cocktails-form">
         <label for="ingredient">Ingredient for a cocktail:</label>
         <input type="text" id="ingredient" name="ingredient">
-        <input type="submit" value="Add ingredient">
+        <p class="ingredient-error">Maximum amount of ingredients is 5.</p>
+        <input type="button" class="add-ingredient" value="Add ingredient">
+        <input type="submit" class="get-cocktails" value="Get Cocktails">
     </form>
 
+    <ul class="cocktails">
+
+    </ul>
+
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    <script src="script.js"></script>
+    <script src="./scripts/cocktails-api.js"></script>
+    <script src="./scripts/script.js"></script>
 </body>
 </html>
