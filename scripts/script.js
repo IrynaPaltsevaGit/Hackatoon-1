@@ -10,6 +10,13 @@ async function runCocktails() {
     const allIngredients = await cocktailsApi.getIngredients();
     let selectedIngredients = [];
 
+    const searchIngredientInput = document.querySelector('[name="ingredient"]');
+
+    searchIngredientInput
+
+    
+
+
     const addIngredientButton = document.querySelector('.add-ingredient');
     const getCocktailsButton = document.querySelector('.get-cocktails');
     addIngredientButton.addEventListener('click', addIngredient);
@@ -22,6 +29,7 @@ async function runCocktails() {
 
         if(selectedIngredients.length < maxIngredientsAmount) {
             selectedIngredients.push(ingredientName);
+            console.log(selectedIngredients);
         }
         else {
             const errorParagraph = document.querySelector('.ingredient-error');
@@ -65,21 +73,52 @@ async function runCocktails() {
                         }
                     });
                     console.log(filteredCocktails);
+                    displayCocktails(cocktails);
+                    selectedIngredients = [];
                 }
             });
 
-            selectedIngredients = [];
-
-            console.log(allSelectedCocktails);
         }else {
             // TODO: show error to the user
         }
-        
-
     }
 
-    function displayCocktails() {
+    function displayCocktails(cocktails) {
+        const cocktailsList = document.querySelector('.cocktails');
+        cocktails.forEach(cocktail => {
+            const itemImg = createElement('img', '');
+            itemImg.src = cocktail.strDrinkThumb;
+            itemImg.alt = cocktail.strDrink;
+            const itemName = createElement('p', '', cocktail.strDrink);
+            const cocktailItem = createElement('li', '', [itemImg, itemName]);
+            cocktailsList.appendChild(cocktailItem);
+        });
+    }
+
+    function getSearchedIngredients() {
         
+    }
+
+    async function getCocktailIngredients(cocktailName) {
+        
+    }
+
+    function createElement(tag, className, children) {
+        const element = document.createElement(tag);
+
+        if(className) {
+            element.classList.add(className);
+        }
+        
+        if(children) {
+            if(Array.isArray(children)) {
+                children.forEach(child => element.append(child));
+            }
+            else {
+                element.append(children);
+            }
+        }
+    
+        return element;
     }
 }
-

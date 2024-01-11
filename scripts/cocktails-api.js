@@ -42,19 +42,25 @@ class CocktailsApi {
         return [];
     }
 
-    async getCoctailsByIngredientNew() {
-        let ingredientUrls = [];
-        const baseUrl = "https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=";
+    async getCocktailIngredients(cocktailName) {
+        const url = "https://www.thecocktaildb.com/api/json/v1/1/search.php?s="+cocktailName;
+        try {
+            const result = await axios.get(url);
 
-        for(let i = 0; i < arguments.length; i++) {
-            let ingredientName = arguments[i];
-            const url = baseUrl + ingredientName;
-            ingredientUrls.push(url);
+            if(result.data) {
+                console.log(result.data)
+                let ingredients = result.data.drinks;
+
+                if(!ingredients) {
+                    return [];
+                    
+                }
+                return ingredients;
+            }
+
+        }catch(error) {
+            console.log(error);
         }
-
-        const result = await Promise.all(ingredientUrls.map(url => axios.get(url)));
-
-        console.log(result)
         return [];
     }
 }
